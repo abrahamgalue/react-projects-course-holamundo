@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  background-color: #eee;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.center {
+  column-count: 3;
+  width: 1200px;
+}
+
+@media (max-width: 1200px) {
+  .center {
+    column-count: 2;
+    width: 800px;
+  }
+}
+
+@media (max-width: 800px) {
+  .center {
+    column-count: 1;
+    width: 400px;
+  }
+}
