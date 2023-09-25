@@ -4,9 +4,9 @@
 
 </div>
 
-Esta es una **Calculadore de interés compuesto.**
+Esta es una **Calculadora de interés compuesto.**
 
-🧩 Aquí puedes ver su [**Live Demo.**]()
+🧩 Aquí puedes ver su [**Live Demo.**](https://interes-compuesto-abraham.netlify.app/)
 
 Este proyecto utiliza:
 
