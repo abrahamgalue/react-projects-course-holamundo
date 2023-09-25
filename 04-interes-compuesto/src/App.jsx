@@ -7,8 +7,20 @@ const Container = styled.div`
   align-items: center;
 `
 
+const Section = styled.section`
+  background-color: #eee;
+  border-top: 2px solid palevioletred;
+  padding: 20px 25px;
+  width: 500px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+`
+
 function App() {
-  return <Container>lala</Container>
+  return (
+    <Container>
+      <Section>Interés compuesto</Section>
+    </Container>
+  )
 }
 
 export default App
