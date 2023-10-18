@@ -4,11 +4,19 @@
 
 </div>
 
+### Interés compuesto
+
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://interes-compuesto-abraham.netlify.app/)
+
+![vista-previa](./public/preview/01-page-preview.png)
+
+## 🚀 Descripción
+
 Esta es una **Calculadora de interés compuesto.**
 
-🧩 Aquí puedes ver su [**Live Demo.**](https://interes-compuesto-abraham.netlify.app/)
+## 🎭 Tecnologías
 
-Este proyecto utiliza:
+El proyecto utiliza las siguientes tecnologías:
 
 - [**Vite**](https://vitejs.dev/) como empaquetador.
 - [**styled-componets**](https://styled-components.com/) para crear los estilos.

@@ -4,11 +4,19 @@
 
 </div>
 
+### Gestor de usuarios
+
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://gestor-de-usuarios-abraham.netlify.app/)
+
+![vista-previa](./public/preview/01-page-preview.png)
+
+## 🚀 Descripción
+
 Este proyecto es una implementación de un **gestor de usuarios.** Para poner en práctica el manejo de formularios con React.
 
-🧩 Aquí puedes ver su [**Live Demo.**](https://gestor-de-usuarios-abraham.netlify.app/)
+## 🎭 Tecnologías
 
-Este proyecto utiliza:
+El proyecto utiliza las siguientes tecnologías:
 
 - [**Vite**](https://vitejs.dev/) como empaquetador.
 - Componentes **funcionales.**
