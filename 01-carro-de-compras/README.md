@@ -6,9 +6,9 @@
 
 ### Carrito de compras
 
-![vista-previa](./public/preview/01-page-preview.png)
-
 > 🧩 Aquí puedes ver su [**Live Demo.**](https://carrito-compras-abraham.netlify.app/)
+
+![vista-previa](./public/preview/01-page-preview.png)
 
 ## 🚀 Descripción
 
