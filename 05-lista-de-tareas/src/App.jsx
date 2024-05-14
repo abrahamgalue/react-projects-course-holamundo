@@ -16,20 +16,36 @@ export const asyncMiddleware = store => next => action => {
   return next(action)
 }
 
+// Actions Creator
+
+const setPending = () => {
+  return { type: 'todos/pending' }
+}
+
+const setFulfilled = payload => ({ type: 'todos/fulfilled', payload })
+
+const setError = e => ({ type: 'todos/error', error: e.message })
+
+const setComplete = payload => ({ type: 'todo/complete', payload })
+
+const setFilter = payload => ({ type: 'filter/set', payload })
+
+const setTodo = payload => ({ type: 'todo/add', payload })
+
 /*
 thunk funcion es una funcion que por lo que sea va a retrasar su ejecucion
 el caso de uso mas común es para hacer un fetching de datos a una API
 */
 export const fetchThunk = () => async dispatch => {
   // console.log('soy un thunk', dispatch)
-  dispatch({ type: 'todos/pending' })
+  dispatch(setPending())
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/todos')
     const data = await response.json()
     const todos = data.slice(0, 10)
-    dispatch({ type: 'todos/fulfilled', payload: todos })
+    dispatch(setFulfilled(todos))
   } catch (e) {
-    dispatch({ type: 'todos/error', error: e.message })
+    dispatch(setError)
   }
 }
 
@@ -119,7 +135,7 @@ const TodoItem = ({ todo }) => {
   return (
     <li
       style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-      onClick={() => dispatch({ type: 'todo/complete', payload: todo })}
+      onClick={() => dispatch(setComplete(todo))}
     >
       {todo.title}
     </li>
@@ -133,8 +149,6 @@ function App() {
   const todos = useSelector(selectTodos)
   const status = useSelector(selectStatus)
 
-  console.log(todos)
-
   const submit = e => {
     e.preventDefault()
     if (!value.trim()) {
@@ -142,7 +156,7 @@ function App() {
     }
     const id = Math.random().toString(36)
     const todo = { title: value, completed: false, id }
-    dispatch({ type: 'todo/add', payload: todo })
+    dispatch(setTodo(todo))
     setValue('')
   }
 
@@ -159,17 +173,11 @@ function App() {
       <form onSubmit={submit}>
         <input value={value} onChange={e => setValue(e.target.value)} />
       </form>
-      <button onClick={() => dispatch({ type: 'filter/set', payload: 'all' })}>
-        Mostrar todos
-      </button>
-      <button
-        onClick={() => dispatch({ type: 'filter/set', payload: 'complete' })}
-      >
+      <button onClick={() => dispatch(setFilter('all'))}>Mostrar todos</button>
+      <button onClick={() => dispatch(setFilter('complete'))}>
         Completados
       </button>
-      <button
-        onClick={() => dispatch({ type: 'filter/set', payload: 'incomplete' })}
-      >
+      <button onClick={() => dispatch(setFilter('incomplete'))}>
         Incompletado
       </button>
 
