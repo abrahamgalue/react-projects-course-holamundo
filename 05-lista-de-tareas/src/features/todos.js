@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import { makeFetchingReducer, makeSetReducer } from "./utils"
+import { makeFetchingReducer, makeSetReducer, reduceReducers, makeCrudReducer } from "./utils"
 
 // Actions Creator
 
@@ -44,28 +44,10 @@ const fetchingReducer = makeFetchingReducer([
   'todos/rejected'
 ])
 
-const todosReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'todos/fulfilled': {
-      return action.payload
-    }
-    case 'todo/add': {
-      return state.concat({ ...action.payload })
-    }
-    case 'todo/complete': {
-      const newTodos = state.map(todo => {
-        if (todo.id === action.payload.id) {
-          return { ...todo, completed: !todo.completed }
-        }
-        return todo
-      })
+const fullfilledReducer = makeSetReducer(['todos/fulfilled'])
+const crudReducer = makeCrudReducer(['todo/add', 'todo/complete'])
 
-      return newTodos
-    }
-    default:
-      return state
-  }
-}
+export const todosReducer = reduceReducers(crudReducer, fullfilledReducer)
 
 export const reducer = combineReducers({
   /*
