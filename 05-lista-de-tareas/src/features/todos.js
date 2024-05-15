@@ -1,4 +1,5 @@
 import { combineReducers } from "redux"
+import { makeFetchingReducer, makeSetReducer } from "./utils"
 
 // Actions Creator
 
@@ -8,7 +9,7 @@ export const setPending = () => {
 
 export const setFulfilled = payload => ({ type: 'todos/fulfilled', payload })
 
-export const setError = e => ({ type: 'todos/error', error: e.message })
+export const setError = e => ({ type: 'todos/rejected', error: e.message })
 
 export const setComplete = payload => ({ type: 'todo/complete', payload })
 
@@ -33,33 +34,15 @@ export const fetchThunk = () => async dispatch => {
   }
 }
 
-const filterReducer = (state = 'all', action) => {
-  switch (action.type) {
-    case 'filter/set':
-      return action.payload
-    default:
-      return state
-  }
-}
+const filterReducer = makeSetReducer([
+  'filter/set'
+])
 
-/* Creamos nuestro reducer de casos o estados de una petición a una API */
-const initialFetching = { loading: 'idle', error: null }
-
-const fetchingReducer = (state = initialFetching, action) => {
-  switch (action.type) {
-    case 'todos/pending': {
-      return { ...state, loading: 'pending' }
-    }
-    case 'todos/fulfilled': {
-      return { ...state, loading: 'succeded' }
-    }
-    case 'todos/error': {
-      return { error: action.error, loading: 'rejected' }
-    }
-    default:
-      return state
-  }
-}
+const fetchingReducer = makeFetchingReducer([
+  'todos/pending',
+  'todos/fulfilled',
+  'todos/rejected'
+])
 
 const todosReducer = (state = [], action) => {
   switch (action.type) {
