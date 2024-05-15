@@ -1,9 +1,11 @@
+import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App, { reducer, asyncMiddleware } from './App.jsx'
-import './index.css'
-import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import App from './App.jsx'
+import { reducer } from './features/todos.js'
+import { asyncMiddleware } from './middlewares/async.js'
 
 const store = createStore(reducer, applyMiddleware(asyncMiddleware))
 
