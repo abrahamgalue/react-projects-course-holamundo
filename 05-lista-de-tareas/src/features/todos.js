@@ -1,25 +1,12 @@
 import { combineReducers } from "redux"
-import { makeFetchingReducer, makeSetReducer, reduceReducers, makeCrudReducer } from "./utils"
+import { mac, makeFetchingReducer, makeSetReducer, reduceReducers, makeCrudReducer } from "./utils"
 
-// Actions Creator
-
-export const setPending = () => {
-  return { type: 'todos/pending' }
-}
-
-const setActions = (type, payload) => ({ type, payload });
-
-// export const setFulfilled = payload => ({ type: 'todos/fulfilled', payload })
-
-export const setFulfilled = payload => setActions('todos/fulfilled', payload);
-
-export const setError = e => ({ type: 'todos/rejected', error: e.message })
-
-export const setComplete = payload => ({ type: 'todo/complete', payload })
-
-export const setFilter = payload => ({ type: 'filter/set', payload })
-
-export const setTodo = payload => setActions('todo/add', payload)
+export const setPending = mac('todos/pending')
+export const setFulfilled = mac('todos/fulfilled', 'payload')
+export const setError = mac('todos/rejected', 'error')
+export const setComplete = mac('todo/complete', 'payload')
+export const setFilter = mac('filter/set', 'payload')
+export const setTodo = mac('todo/add', 'payload')
 
 /*
 thunk funcion es una funcion que por lo que sea va a retrasar su ejecucion
@@ -34,7 +21,7 @@ export const fetchThunk = () => async dispatch => {
     const todos = data.slice(0, 10)
     dispatch(setFulfilled(todos))
   } catch (e) {
-    dispatch(setError(e))
+    dispatch(setError(e.message))
   }
 }
 

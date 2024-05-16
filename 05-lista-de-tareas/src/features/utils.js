@@ -1,3 +1,15 @@
+// Make Action Creator
+
+export const mac = (type, ...argNames) =>
+  (...args) => {
+    const action = { type }
+    argNames.forEach((arg, index) => {
+      action[argNames[index]] = args[index]
+    })
+
+    return action
+  }
+
 // Nos permite acoplar reducers, para que se ejecute la acción de alguno
 export const reduceReducers = (...reducers) => (state, action) =>
   reducers.reduce((acc, el) => el(acc, action), state)
