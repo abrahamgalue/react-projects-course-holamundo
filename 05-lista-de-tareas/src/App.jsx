@@ -1,28 +1,14 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
+import TodoItem from './components/TodoItem'
 import {
   fetchThunk,
-  setComplete,
   setFilter,
   setTodo,
   selectTodos,
   selectStatus,
 } from './features/todos'
-
-const TodoItem = ({ todo }) => {
-  const dispatch = useDispatch()
-  return (
-    <li
-      style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-      onClick={() => dispatch(setComplete(todo))}
-    >
-      {todo.title}
-    </li>
-  )
-}
 
 function App() {
   const [value, setValue] = useState('')
