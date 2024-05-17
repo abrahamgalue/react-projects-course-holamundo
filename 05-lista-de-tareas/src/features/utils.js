@@ -1,3 +1,12 @@
+// Async Make Action Creator
+
+/*
+ Lo creamos para reutilizar la lógica
+ de hacer peticiones al servidor
+ en diferentes entidades
+*/
+export const mat = entity => [`${entity}/pending`, `${entity}/fulfilled`, `${entity}/rejected`]
+
 // Make Action Creator
 
 export const mac = (type, ...argNames) =>
@@ -9,6 +18,17 @@ export const mac = (type, ...argNames) =>
 
     return action
   }
+
+/*
+ Creamos esta funcion para reutilizar los actions creator
+ que siempre necesitaremos en nuestras peticiones al servidor
+*/
+
+export const asyncMac = asyncTypes => ([
+  mac(asyncTypes[0]),
+  mac(asyncTypes[1], 'payload'),
+  mac(asyncTypes[2], 'error'),
+])
 
 // Nos permite acoplar reducers, para que se ejecute la acción de alguno
 export const reduceReducers = (...reducers) => (state, action) =>
