@@ -37,20 +37,30 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='container'>
+      <h1>Todo List</h1>
       <form onSubmit={submit}>
-        <input value={value} onChange={e => setValue(e.target.value)} />
+        <input
+          placeholder='Read a book'
+          value={value}
+          className='task-bar'
+          onChange={e => setValue(e.target.value)}
+        />
       </form>
-      <button onClick={() => dispatch(setFilter('all'))}>Mostrar todos</button>
-      <button onClick={() => dispatch(setFilter('complete'))}>
-        Completados
-      </button>
-      <button onClick={() => dispatch(setFilter('incomplete'))}>
-        Incompletado
-      </button>
+      <div className='btns-container'>
+        <button onClick={() => dispatch(setFilter('all'))}>
+          Mostrar todos
+        </button>
+        <button onClick={() => dispatch(setFilter('complete'))}>
+          Completados
+        </button>
+        <button onClick={() => dispatch(setFilter('incomplete'))}>
+          Incompletado
+        </button>
 
-      {/* Se ejecuta la función en lugar de ejecutar un caso predefinido en el disptach */}
-      <button onClick={() => dispatch(fetchThunk())}>Fetch</button>
+        {/* Se ejecuta la función en lugar de ejecutar un caso predefinido en el disptach */}
+        <button onClick={() => dispatch(fetchThunk())}>Fetch</button>
+      </div>
       <ul>
         {todos.map(todo => (
           <TodoItem key={todo.id} todo={todo} />
