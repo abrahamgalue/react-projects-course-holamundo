@@ -8,6 +8,7 @@ import {
   setTodo,
   selectTodos,
   selectStatus,
+  selectFilter,
 } from './features/todos'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
   const todos = useSelector(selectTodos)
   const status = useSelector(selectStatus)
+  const filter = useSelector(selectFilter)
 
   const submit = e => {
     e.preventDefault()
@@ -48,13 +50,22 @@ function App() {
         />
       </form>
       <div className='btns-container'>
-        <button onClick={() => dispatch(setFilter('all'))}>
+        <button
+          style={{ background: filter === 'all' ? '#e4085f' : null }}
+          onClick={() => dispatch(setFilter('all'))}
+        >
           Mostrar todos
         </button>
-        <button onClick={() => dispatch(setFilter('complete'))}>
+        <button
+          style={{ background: filter === 'complete' ? '#e4085f' : null }}
+          onClick={() => dispatch(setFilter('complete'))}
+        >
           Completados
         </button>
-        <button onClick={() => dispatch(setFilter('incomplete'))}>
+        <button
+          style={{ background: filter === 'incomplete' ? '#e4085f' : null }}
+          onClick={() => dispatch(setFilter('incomplete'))}
+        >
           Incompletado
         </button>
 

@@ -68,3 +68,5 @@ export const selectTodos = state => {
 }
 
 export const selectStatus = state => state.todos.status
+
+export const selectFilter = state => state.filter
