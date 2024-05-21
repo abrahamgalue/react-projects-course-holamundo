@@ -1,8 +1,26 @@
-# React + Vite
+<div align='center'>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📄 React: Task list
 
-Currently, two official plugins are available:
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Lista de tareas
+
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://lista-tareas-abrahamgalue.netlify.app/)
+
+![vista-previa-1](./public/preview/01-page-preview.jpg)
+
+![vista-previa-2](./public/preview/02-page-preview.jpg)
+
+![vista-previa-3](./public/preview/03-page-preview.jpg)
+
+## 🚀 Descripción
+
+Esta es una aplicación de **Listas de tareas.**
+
+## 🎭 Tecnologías
+
+El proyecto utiliza las siguientes tecnologías:
+
+- [**Vite**](https://vitejs.dev/) como empaquetador.
+- [**Redux**](https://redux.js.org/) para definir el estado de la aplicación.
