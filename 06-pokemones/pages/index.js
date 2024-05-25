@@ -19,7 +19,7 @@ export default function Home({ pokemones }) {
 
   return (
     <div>
-      <p>
+      <p data-testid='titulo'>
         Pokemones
       </p>
       <ul>
