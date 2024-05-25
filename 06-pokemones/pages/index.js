@@ -29,7 +29,11 @@ export default function Home({ pokemones }) {
   );
 }
 
-/* Permite generar docs html de manera estatica al momento de hacer el build */
+/*
+Permite generar docs html de manera estatica al momento de hacer el build
+
+Esto debido a que la lista del fetch siempre será la misma
+ */
 export const getStaticProps = async () => {
   const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
   const data = await res.json()
