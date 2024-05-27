@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import Index from '../pages/index'
+import Index, { getStaticProps } from '../pages/index'
 
 describe('Index', () => {
 
@@ -21,6 +21,38 @@ describe('Index', () => {
 
       const url = chanchito.getAttribute('href')
       expect(url).toEqual('/pokemones/1')
+    })
+  })
+
+  describe('getStaticProps', () => {
+    it('return pokemones', async () => {
+      /* 
+      Crea un MOCK
+      Nos permite asignar funcionalidades y luego poder probarlas
+
+      Lo hacemos debido a que el método de fetch
+      no existe en el servidor donde se ejecutan los test
+
+      así que tenemos dos alternativas:
+
+      * simular un servidor
+      * remplazar la función fetch
+      */
+      global.fetch = jest.fn()
+        .mockImplementation(url => {
+          expect(url).toBe('https://pokeapi.co/api/v2/pokemon?limit=151')
+          return new Promise(resolve => {
+            resolve({
+              json: () => Promise.resolve({
+                results: 'lista de pokemones'
+              })
+            })
+          })
+        })
+
+      const { props } = await getStaticProps()
+
+      expect(props.pokemones).toBe('lista de pokemones')
     })
   })
 })
