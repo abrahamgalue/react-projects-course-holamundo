@@ -1,6 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 
+export const dynamicParams = true
+
+export async function generateStaticParams() {
+  return [{ id: '1' }, { id: '2' }]
+}
+
 async function getPokemones(id) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
   const data = await res.json()
@@ -10,7 +16,6 @@ async function getPokemones(id) {
 
 export default async function Pokemon({ params: { id } }) {
   const data = await getPokemones(id)
-  console.log(data)
 
   return (
     <div>
