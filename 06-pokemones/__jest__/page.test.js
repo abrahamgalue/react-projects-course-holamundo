@@ -13,7 +13,7 @@ describe('Page', () => {
               json: () => Promise.resolve({
                 results: [
                   {
-                    name: 'chanchito', url: 'https://www.dominio.com/pokemones/1'
+                    name: 'Chanchito feliz', url: 'pokemon/detalle/1'
                   }
                 ]
               })
@@ -26,6 +26,13 @@ describe('Page', () => {
 
       const paragraph = screen.getByTestId('titulo')
       expect(paragraph).toBeInTheDocument()
+
+      const chanchito = screen.getByText('Chanchito feliz')
+
+      expect(chanchito).toBeInTheDocument()
+
+      const url = chanchito.getAttribute('href')
+      expect(url).toEqual('/pokemones/1')
     })
   })
 })
