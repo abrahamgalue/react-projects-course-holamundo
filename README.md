@@ -23,5 +23,6 @@ Estos son proyectos que **he desarrollado** como parte de un **curso de React**.
 | `03`   | Buscador de Imágenes             | [Ver](03-buscador-de-imagenes/) | [Visitar](https://buscador-de-imagenes-abraham.netlify.app/) |
 | `04`   | Calculadora de Interés Compuesto | [Ver](04-interes-compuesto/)    | [Visitar](https://interes-compuesto-abraham.netlify.app/)    |
 | `05`   | Lista de Tareas                  | [Ver](05-lista-de-tareas/)      | [Visitar](https://lista-tareas-abrahamgalue.netlify.app/)    |
+| `06`   | Pokemones                        | [Ver](06-pokemones/)            | [Visitar](https://next14-pokemones.vercel.app/)              |
 
 </div>
