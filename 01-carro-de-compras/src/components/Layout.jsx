@@ -9,7 +9,8 @@ const styles = {
     flexDirection: 'column',
   },
   container: {
-    width: '1200px',
+    padding: '40px',
+    width: '70vw',
   },
 }
 class Layout extends Component {

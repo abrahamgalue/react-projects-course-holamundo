@@ -3,9 +3,8 @@ import Producto from './Producto'
 
 const styles = {
   productos: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
     gap: '10px',
   },
 }
@@ -16,7 +15,7 @@ class Productos extends Component {
 
     return (
       <div style={styles.productos}>
-        {productos.map((producto) => (
+        {productos.map(producto => (
           <Producto
             agregarAlCarro={agregarAlCarro}
             key={producto.name}
