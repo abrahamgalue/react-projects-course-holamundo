@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 export const dynamicParams = true
@@ -20,7 +19,13 @@ export default async function Pokemon({ params: { id } }) {
   return (
     <div>
       <h1>{data.name} número #{data.id}</h1>
-      <Image src={data.sprites.front_default} width={400} height={400} alt={`Pokemon ${data.name}`} />
+      <picture>
+        <img
+          src={data.sprites.front_default}
+          alt={`Pokemon ${data.name}`}
+          width={400}
+          height={400} />
+      </picture>
       <Link href='/'>Volver al inicio</Link>
     </div>
   )
