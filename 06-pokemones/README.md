@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align='center'>
 
-## Getting Started
+# 🐲 React: Pokemones
 
-First, run the development server:
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Lista de Pokemones
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://next14-pokemones.vercel.app/)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+![vista-previa-1](public/preview/01-page-preview.jpg)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![vista-previa-2](public/preview/02-page-preview.jpg)
 
-## Learn More
+## 🚀 Descripción
 
-To learn more about Next.js, take a look at the following resources:
+Esta es una aplicación de **Listas de Pokemones.** Utiliza Next 14, aplicando tecnologías como **SSR**, **SSG**, **Server Components** y **Client Components**, para renderizar los datos. Además se aplica testing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎭 Tecnologías
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+El proyecto utiliza las siguientes tecnologías:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [**Next**](https://nextjs.org/) como framework.
+- [**Styled Components**](https://styled-components.com/) para integrarlo con Nextjs.
+- [**React Testing Library**](https://testing-library.com/docs/react-testing-library/intro/) para renderizar los componentes con React.
+- [**Jest**](https://jestjs.io/) para realizar los tests unitarios.
