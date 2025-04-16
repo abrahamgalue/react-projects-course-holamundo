@@ -8,7 +8,8 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
-        port: ''
+        port: '',
+        pathname: '/PokeAPI/sprites/master/sprites/pokemon/**'
       }
     ]
   }

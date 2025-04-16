@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Image from 'next/image'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   return [{ id: '1' }, { id: '2' }]
@@ -16,14 +17,17 @@ export default async function Pokemon({ params: { id } }) {
 
   return (
     <div>
-      <h1>{data.name} número #{data.id}</h1>
-      <picture>
-        <img
-          src={data.sprites.front_default}
-          alt={`Pokemon ${data.name}`}
-          width={400}
-          height={400} />
-      </picture>
+      <h1>
+        {data.name} número #{data.id}
+      </h1>
+      <Image
+        src={data.sprites.front_default}
+        alt={`Pokemon ${data.name}`}
+        width={400}
+        height={400}
+        quality={100}
+      />
+
       <Link href='/'>Volver al inicio</Link>
     </div>
   )
